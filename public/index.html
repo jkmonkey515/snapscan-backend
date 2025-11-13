@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Upload & Search</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>PDF Upload & Search</h1>
+            <p>Upload a PDF file to extract text and search with Google</p>
+        </header>
+
+        <div class="upload-section">
+            <div class="tabs">
+                <button class="tab-button active" data-tab="upload">Upload PDF Only</button>
+                <button class="tab-button" data-tab="upload-search">Upload & Search</button>
+                <button class="tab-button" data-tab="search">Search Only</button>
+            </div>
+
+            <div class="tab-content active" id="upload-tab">
+                <form id="upload-form">
+                    <div class="file-input-wrapper">
+                        <input type="file" id="pdf-file" accept=".pdf" required>
+                        <label for="pdf-file" class="file-label">
+                            <span class="file-icon">📄</span>
+                            <span class="file-text">Choose PDF file</span>
+                        </label>
+                    </div>
+                    <button type="submit" class="btn-primary">Upload PDF</button>
+                </form>
+            </div>
+
+            <div class="tab-content" id="upload-search-tab">
+                <form id="upload-search-form">
+                    <div class="file-input-wrapper">
+                        <input type="file" id="pdf-search-file" accept=".pdf" required>
+                        <label for="pdf-search-file" class="file-label">
+                            <span class="file-icon">📄</span>
+                            <span class="file-text">Choose PDF file</span>
+                        </label>
+                    </div>
+                    <div class="input-group">
+                        <label for="search-query">Search Query (optional)</label>
+                        <input type="text" id="search-query" placeholder="Leave empty to use PDF content">
+                    </div>
+                    <button type="submit" class="btn-primary">Upload & Search</button>
+                </form>
+            </div>
+
+            <div class="tab-content" id="search-tab">
+                <form id="search-form">
+                    <div class="input-group">
+                        <label for="query-only">Search Query</label>
+                        <input type="text" id="query-only" placeholder="Enter search query" required>
+                    </div>
+                    <button type="submit" class="btn-primary">Search</button>
+                </form>
+            </div>
+        </div>
+
+        <div id="loading" class="loading hidden">
+            <div class="spinner"></div>
+            <p>Processing...</p>
+        </div>
+
+        <div id="response" class="response hidden"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
